@@ -1,7 +1,7 @@
 {
   "name": "nwc-tools",
   "version": "1.0.0",
-  "description": "Tools to assist in working with native web components",
+  "description": "Tools to assist development with native web components",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

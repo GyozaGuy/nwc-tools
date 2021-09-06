@@ -52,7 +52,7 @@ export class Component extends HTMLElement {
 
   initializeProps() {
     // Initialize props
-    Object.entries(this).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(this)) {
       if (
         !IGNORED_PROPS.includes(key) &&
         !key.startsWith('_') &&
@@ -64,7 +64,7 @@ export class Component extends HTMLElement {
         this[`get${functionSuffix}`] = () => this.props[key];
         this[`set${functionSuffix}`] = newValue => this.updateProp(key, newValue);
       }
-    });
+    }
 
     // Update props with attributes, if any
     if (this.hasAttributes()) {
@@ -77,13 +77,13 @@ export class Component extends HTMLElement {
     }
 
     // Reflect props to attributes
-    Object.entries(this.props).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(this.props)) {
       const attrName = propToAttrName(key);
 
       if (!this.hasAttribute(attrName)) {
         this.updateAttribute(attrName, value);
       }
-    });
+    }
   }
 
   updateAttribute(name, value) {

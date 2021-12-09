@@ -80,7 +80,7 @@ export class Component extends HTMLElement {
     for (const [key, value] of Object.entries(this.props)) {
       const attrName = propToAttrName(key);
 
-      if (!this.hasAttribute(attrName)) {
+      if (!this.hasAttribute(attrName) && ['boolean', 'number', 'string'].includes(typeof value)) {
         this.updateAttribute(attrName, value);
       }
     }
